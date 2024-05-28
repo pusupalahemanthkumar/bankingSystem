@@ -1,2 +1,4 @@
 ./app.env
 *.env
+
+.DS_Store

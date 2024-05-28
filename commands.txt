@@ -1,3 +1,5 @@
 go mod init github.com/pusupalahemanthkumar/bankingsystem
 
 go mod tidy
+
+go get github.com/golang/mock/mockgen
