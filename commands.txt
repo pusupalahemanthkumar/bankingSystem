@@ -3,3 +3,7 @@ go mod init github.com/pusupalahemanthkumar/bankingsystem
 go mod tidy
 
 go get github.com/golang/mock/mockgen
+
+go get github.com/spf13/viper
+
+go get "golang.org/x/crypto/bcrypt"
