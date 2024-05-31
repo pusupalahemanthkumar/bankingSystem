@@ -3,6 +3,8 @@ module github.com/pusupalahemanthkumar/bankingsystem
 go 1.21.1
 
 require (
+	github.com/dgrijalva/jwt-go v3.2.0+incompatible
+	github.com/google/uuid v1.4.0
 	github.com/jackc/pgx/v5 v5.6.0
 	github.com/spf13/viper v1.18.2
 	github.com/stretchr/testify v1.8.4
