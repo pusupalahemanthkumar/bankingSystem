@@ -7,3 +7,5 @@ go get github.com/golang/mock/mockgen
 go get github.com/spf13/viper
 
 go get "golang.org/x/crypto/bcrypt"
+
+go get -u github.com/gin-gonic/gin
