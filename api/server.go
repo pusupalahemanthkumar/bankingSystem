@@ -4,6 +4,8 @@ import (
 	"fmt"
 
 	"github.com/gin-gonic/gin"
+	"github.com/gin-gonic/gin/binding"
+	"github.com/go-playground/validator/v10"
 	db "github.com/pusupalahemanthkumar/bankingsystem/db/sqlc"
 	"github.com/pusupalahemanthkumar/bankingsystem/token"
 	"github.com/pusupalahemanthkumar/bankingsystem/util"
@@ -25,6 +27,13 @@ func NewServer(config util.Config, store db.Store) (*Server, error) {
 
 	server := &Server{config: config, store: store, tokenMaker: tokenMaker}
 
+	// Custom request validator with gin
+	if v, ok := binding.Validator.Engine().(*validator.Validate); ok {
+
+		v.RegisterValidation("currency", validCurrency)
+
+	}
+
 	server.setupRouter()
 
 	return server, nil
@@ -42,6 +51,8 @@ func (server *Server) setupRouter() {
 	authRoutes.POST("/accounts", server.createAccount)
 	authRoutes.GET("/accounts/:id", server.getAccount)
 	authRoutes.GET("/accounts", server.listAccounts)
+
+	authRoutes.POST("/transfer", server.createTransfer)
 
 	server.router = router
 }
